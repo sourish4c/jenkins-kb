@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Simulate a failure
+                sh 'exit 1'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Simulate a success
+                sh 'exit 0'
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                // You can add custom logic here if needed
+                if (currentBuild.currentResult == 'FAILURE') {
+                    echo "One or more stages failed."
+                    // Optional: force failure if needed
+                    currentBuild.result = 'FAILURE'
+                }
+            }
+        }
+
+        success {
+            echo "Pipeline completed successfully."
+        }
+
+        failure {
+            echo "Pipeline failed due to a stage failure."
+        }
+    }
+}
