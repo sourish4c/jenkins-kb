@@ -1,4 +1,10 @@
+
+---
+
 # Jenkins Pipeline Examples & Best Practices
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://your.jenkins.url/job/your-job-name/)
+[![Jenkins](https://img.shields.io/badge/jenkins-pipeline-blue.svg)](https://www.jenkins.io/doc/book/pipeline/)
 
 A collection of Jenkins pipeline examples, configurations, and best practices to help teams implement CI/CD workflows.
 
