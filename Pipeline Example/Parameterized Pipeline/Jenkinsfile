@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'NAME', defaultValue: 'World', description: 'Who should I greet?')
+        string(name: 'PROJECT', defaultValue: 'DemoProject', description: 'Project name')
+    }
+
+    stages {
+        stage('Greet') {
+            steps {
+                echo "Hello, ${params.NAME}!"
+                echo "You are working on project: ${params.PROJECT}"
+            }
+        }
+    }
+}
